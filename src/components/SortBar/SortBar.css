@@ -1,0 +1,59 @@
+.SortBar ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto 3rem auto;
+  width: 100%;
+  max-width: 557px;
+  color: var(--text-dark);
+}
+
+.SortBar li {
+  cursor: pointer;
+  width: 7rem;
+  height: 2.25rem;
+  border-radius: 8px 8px 0 0;
+  padding: 0.5rem;
+  margin: auto 0;
+  text-align: center;
+  transition: background 0.3s ease-in-out, border 0.1s ease-in-out;
+}
+
+.underbar {
+  width: 0;
+  height: 4px;
+  background: var(--text-dark);
+  transition: all 0.3s ease-in-out;
+  width: 33%;
+  position: absolute;
+  bottom: 0;
+}
+
+.SortBar li:hover {
+  background-color: rgba(214, 240, 57, 0.5);
+}
+
+.SortBar li:nth-child(1):hover ~ .underbar {
+  width: 7rem;
+  left: 0;
+}
+
+.SortBar li.active {
+  border-bottom: 4px solid var(--text-dark);
+}
+
+@media all and (min-width: 767px) {
+  .SortBar ul {
+    margin: 2.5rem auto 4rem auto;
+  }
+
+  .SortBar li {
+    width: 9.125rem;
+    height: 2.875rem;
+  }
+}
+
+@media all and (min-width: 1023px) {
+  .SortBar ul {
+    margin: 2.5rem 0 4rem 0;
+  }
+}

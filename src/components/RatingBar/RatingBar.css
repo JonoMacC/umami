@@ -1,0 +1,14 @@
+.star-rating {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.star-rating > * {
+  margin-right: 2px;
+}
+
+.star-rating > :last-child {
+  margin: 0;
+}

@@ -1,0 +1,22 @@
+.Footer {
+  background-color: var(--brand-secondary);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  margin: auto 0 0 0;
+}
+
+.Footer a {
+  text-decoration: none;
+  font-weight: bold;
+  color: #fff;
+}
+
+.Footer a:link,
+.Footer a:visited,
+.Footer a:hover,
+.Footer a:active {
+  color: #fff;
+}

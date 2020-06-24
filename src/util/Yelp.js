@@ -1,12 +1,12 @@
 const apiKey =
   "HHn-cyBvPf830b3UqshExAB86b1Al7-hs11nQ_FO_x_cmgmdncUS_UslH9-hMbSPMSedh4hZZU2-gxv1DzYk8U3t-X755I2iHuqmIQJf2ViTsee64Mi2UOYfInC8XnYx";
 
-const mapsPath = "https://www.google.com/maps/search/?api=1&";
+const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
 
 const Yelp = {
-  search(term, location, sortBy) {
+  search(term, location, sortBy, limit) {
     return fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
+      `${corsAnywhere}https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}`,
       {
         headers: {
           Authorization: `Bearer ${apiKey}`,
@@ -14,7 +14,10 @@ const Yelp = {
       }
     )
       .then((response) => {
-        return response.json();
+        if (response.ok) {
+          const jsonResponse = response.json();
+          return jsonResponse;
+        }
       })
       .then((jsonResponse) => {
         if (jsonResponse.businesses) {
@@ -27,11 +30,10 @@ const Yelp = {
               city: business.location.city,
               state: business.location.state,
               zipCode: business.location.zip_code,
-              category: business.categories[0].title,
+              categories: business.categories.map((category) => category.title),
               rating: business.rating,
               reviewCount: business.review_count,
               url: business.url,
-              mapUrl: mapsPath + business.name.replace(/ /g, '+') + '%2C+' + business.location.address1.replace(/ /g, '+') + '%2C+' + business.location.city.replace(/ /g, '+') + '%2C+' + business.location.state,
             };
           });
         }
