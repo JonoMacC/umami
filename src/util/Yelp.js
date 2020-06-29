@@ -1,7 +1,4 @@
-const apiKey =
-  "HHn-cyBvPf830b3UqshExAB86b1Al7-hs11nQ_FO_x_cmgmdncUS_UslH9-hMbSPMSedh4hZZU2-gxv1DzYk8U3t-X755I2iHuqmIQJf2ViTsee64Mi2UOYfInC8XnYx";
-
-const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
+const corsAnywhere = "https://dasein-cors-anywhere.netlify.app/";
 
 const Yelp = {
   search(term, location, sortBy, limit) {
@@ -9,7 +6,7 @@ const Yelp = {
       `${corsAnywhere}https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}`,
       {
         headers: {
-          Authorization: `Bearer ${apiKey}`,
+          Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
         },
       }
     )
