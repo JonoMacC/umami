@@ -1,16 +1,15 @@
 // const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
-const corsAnywhere = "https://dasein-cors-anywhere.netlify.app/";
+// const corsAnywhere = "https://dasein-cors-anywhere.netlify.app/";
+// const yelp = "https://api.yelp.com/v3/businesses/";
 
 const Yelp = {
   search(term, location, sortBy, limit) {
-    return fetch(
-      `${corsAnywhere}https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}`,
-      {
-        headers: {
-          Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
-        },
-      }
-    )
+    const query = `search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}`;
+    return fetch(`/yelp/${query}`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
+      },
+    })
       .then((response) => {
         if (response.ok) {
           const jsonResponse = response.json();
