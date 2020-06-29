@@ -10,6 +10,21 @@
   padding: 0.75rem;
 }
 
+.InputField.compact {
+  height: 2.75rem;
+  background: none;
+  border-radius: 0;
+  padding-left: 0;
+}
+
+.InputField.compact input {
+  color: #fff;
+}
+
+.InputField.compact ::placeholder {
+  color: #aaa;
+}
+
 .icon-box {
   height: 1.5rem;
   width: 1.5rem;

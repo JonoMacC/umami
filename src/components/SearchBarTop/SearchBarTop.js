@@ -1,15 +1,33 @@
 import React from "react";
-import "./SearchBar.css";
+import "./SearchBarTop.css";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 
-class SearchBar extends React.Component {
+class SearchBarTop extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      isVisible: false,
+      visibility: "",
+    };
 
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    if (window.pageYOffset >= 620) {
+      this.setState({ isVisible: true, visibility: "show" });
+    } else {
+      this.setState({ isVisible: false, visibility: "" });
+    }
   }
 
   handleTermChange(value) {
@@ -27,30 +45,32 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="SearchBar">
+      <div className={`SearchBarTop ${this.state.visibility}`}>
         <InputField
-          placeholder="Search Restaurants"
+          className="compact"
+          placeholder={this.props.term}
           icon="search"
-          iconFill="#6d6d6d"
+          iconFill="#aaaaaa"
           onSearch={this.handleSearch}
           onChange={this.handleTermChange}
         />
         <InputField
-          placeholder="Where?"
+          className="compact"
+          placeholder={this.props.location}
           icon="map-pin"
-          iconFill="#6d6d6d"
+          iconFill="#aaaaaa"
           onSearch={this.handleSearch}
           onChange={this.handleLocationChange}
         />
         <Button
-          className="primary icon"
+          className="icon compact"
           onClick={this.handleSearch}
           icon="arrow-right"
-          iconFill="#181818"
+          iconFill="#ffffff"
         />
       </div>
     );
   }
 }
 
-export default SearchBar;
+export default SearchBarTop;

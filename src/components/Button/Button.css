@@ -5,6 +5,8 @@ button {
   width: 100%;
   height: 2.75rem;
   transition: background 300ms ease-in-out, transform 150ms ease-in-out;
+  background: none;
+  color: #fff;
 }
 
 button.primary {
@@ -19,7 +21,6 @@ button.primary:focus {
 
 button.secondary {
   background: var(--brand-secondary);
-  color: #fff;
 }
 
 button.secondary:hover,
@@ -50,6 +51,10 @@ button.icon.left {
 .icon-container {
   width: 1.5rem;
   height: 1.5rem;
+}
+
+button.icon.compact {
+  height: 2.75rem;
 }
 
 @media all and (min-width: 767px) {

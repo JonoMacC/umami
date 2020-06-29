@@ -20,7 +20,7 @@ class Button extends React.Component {
         <button className={this.props.className} onClick={this.handleClick}>
           <div className="icon-container">
             <Icon
-              fill="#181818"
+              fill={this.props.iconFill}
               name={this.props.icon}
               width="100%"
               height="100%"

@@ -29,10 +29,10 @@ class InputField extends React.Component {
 
   render() {
     return (
-      <div className="InputField">
+      <div className={`InputField ${this.props.className}`}>
         <div className="icon-box">
           <Icon
-            fill="#6d6d6d"
+            fill={this.props.iconFill}
             name={this.props.icon}
             width="100%"
             height="100%"
