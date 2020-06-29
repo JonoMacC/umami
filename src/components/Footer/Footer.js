@@ -8,7 +8,7 @@ class Footer extends React.Component {
         <p className="small center">
           Hand-coded with ♥ by{" "}
           <a href="https://twitter.com/jonmaccaull">Jon MacCaull</a>. See
-          project on Github.
+          project on <a href="https://github.com/JonoMacC/umami">Github</a>.
         </p>
       </div>
     );
