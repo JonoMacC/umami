@@ -1,55 +1,46 @@
 .InputField {
   display: flex;
   flex-direction: row nowrap;
-}
-
-.icon-left {
-  width: 2.75rem;
-  height: 2.75rem;
-  background: var(--brand-primary);
-  border-radius: 8px 0 0 8px;
-  order: 0;
-  align-self: center;
-  flex: none;
-  border: none;
-  border-right: 2px solid var(--gray-02);
-  display: flex;
   align-items: center;
-  justify-content: center;
+  height: 2.75rem;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: #fff;
+  padding: 0.75rem;
 }
 
-.icon-container {
-  width: 1.5rem;
+.icon-box {
   height: 1.5rem;
+  width: 1.5rem;
+  flex: none;
 }
 
 .input {
-  height: 2.75rem;
-  width: calc(100% - 2.75rem);
-  background: #fff;
   border: none;
-  border-radius: 0 8px 8px 0;
+  background: none;
   flex: none;
-  order: 1;
   align-self: center;
   display: flex;
   align-items: center;
-  padding: 0.75rem 0.75rem;
+  padding: 0 0.75rem;
+}
+
+.input.left {
+  border-radius: 0 8px 8px 0;
+}
+
+.input.right {
+  border-radius: 8px 0 0 8px;
 }
 
 @media all and (min-width: 767px) {
-  .icon-left {
-    width: 3.5rem;
+  .InputField {
     height: 3.5rem;
   }
 
-  .icon-container {
+  .icon-box {
     width: 2rem;
     height: 2rem;
-  }
-
-  .input {
-    height: 3.5rem;
-    width: calc(100% - 3.5rem);
   }
 }

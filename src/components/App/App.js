@@ -34,12 +34,10 @@ class App extends React.Component {
 
   handleTermChange(value) {
     this.setState({ term: value, limit: 18 });
-    // this.searchYelp();
   }
 
   handleLocationChange(value) {
     this.setState({ location: value, limit: 18 });
-    // this.searchYelp();
   }
 
   searchYelp() {
@@ -59,6 +57,7 @@ class App extends React.Component {
 
   extendSearch() {
     // Increase the limit for the number of search results
+    // Results are limited to 50 by Yelp API
     const newLimit = this.state.limit + 18;
     const setLimit = newLimit > 50 ? 50 : newLimit;
     this.setState({ limit: setLimit }, () => {

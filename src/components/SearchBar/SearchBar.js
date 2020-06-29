@@ -1,6 +1,7 @@
 import React from "react";
 import "./SearchBar.css";
 import InputField from "../InputField/InputField";
+import Button from "../Button/Button";
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -38,6 +39,11 @@ class SearchBar extends React.Component {
           icon="map-pin"
           onSearch={this.handleSearch}
           onChange={this.handleLocationChange}
+        />
+        <Button
+          className="primary icon"
+          onClick={this.handleSearch}
+          icon="arrow-right"
         />
       </div>
     );

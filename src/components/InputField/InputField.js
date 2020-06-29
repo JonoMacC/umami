@@ -30,16 +30,14 @@ class InputField extends React.Component {
   render() {
     return (
       <div className="InputField">
-        <button className="icon-left" onClick={this.handleSearch}>
-          <div className="icon-container">
-            <Icon
-              fill="#181818"
-              name={this.props.icon}
-              width="100%"
-              height="100%"
-            />
-          </div>
-        </button>
+        <div className="icon-box">
+          <Icon
+            fill="#6d6d6d"
+            name={this.props.icon}
+            width="100%"
+            height="100%"
+          />
+        </div>
         <input
           className="input"
           placeholder={this.props.placeholder}

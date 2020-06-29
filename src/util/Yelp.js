@@ -1,5 +1,4 @@
 // const corsAnywhere = "https://cors-anywhere.herokuapp.com/";
-// const corsAnywhere = "https://dasein-cors-anywhere.netlify.app/";
 // const yelp = "https://api.yelp.com/v3/businesses/";
 
 const Yelp = {
