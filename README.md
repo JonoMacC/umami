@@ -1,41 +1,41 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Umami
 
-In the project directory, you can run:
+This project is a simple SPA (Single Page Application) using the Yelp API
 
-### `yarn start`
+### Live Site
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Go to [https://eatumami.netlify.app](https://eatumami.netlify.app) to view the live website.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Local Development
 
-### `yarn test`
+To run the app locally, you will need to modify Yelp.js in src > util.<br />
+Un-comment lines 1 and 2. Change line 7 `/yelp/${query}` to `${corsAnywhere}${yelp}${query}`.<br />
+Note that the cors-anywhere heroku proxy server limits requests which may result in occasional errors during testing.<br />
+You must have your own Yelp API key.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### CORS Anywhere
 
-### `yarn build`
+The Yelp API does not support CORS which means when you make a request to the API from your local machine the request will be denied. You can fix this by sending the request through a proxy server that returns a header with CORS. The cors-anywhere heroku proxy server can be used for this purpose.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+[cors-anywhere](https://github.com/Rob--W/cors-anywhere)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### Yelp API Key Setup
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Once you have an API key for the Yelp Fusion API, you can set it as an environment variable on your local machine. Create a file in your root project directory called .env. In that file create a variable called REACT_APP_YELP_API_KEY and set it equal to your api key. The file should look like:<br/>
 
-### `yarn eject`
+`REACT_APP_YELP_API_KEY=your-api-key-goes-here`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Never share your API key in public such as in a git repository. You should add .env to your .gitignore file.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Running
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Use `yarn start` to build a development version and run it on your local machine.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Deploying on Netlify
+
+Ensure that you have set up your API key as an environment variable for your site on Netlify. Revert any changes made for local development. The configuration file netlify.toml will handle proxy redirects for the Yelp API.
 
 ## Learn More
 
@@ -43,26 +43,4 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+To learn about the Yelp API, check out the [Yelp API documentation](https://www.yelp.com/developers/documentation/v3).
