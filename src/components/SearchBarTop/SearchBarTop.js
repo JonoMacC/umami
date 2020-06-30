@@ -48,7 +48,7 @@ class SearchBarTop extends React.Component {
       <div className={`SearchBarTop ${this.state.visibility}`}>
         <InputField
           className="compact"
-          placeholder={this.props.term}
+          placeholder="Search Restaurants"
           icon="search"
           iconFill="#aaaaaa"
           onSearch={this.handleSearch}
@@ -56,7 +56,7 @@ class SearchBarTop extends React.Component {
         />
         <InputField
           className="compact"
-          placeholder={this.props.location}
+          placeholder="Where?"
           icon="map-pin"
           iconFill="#aaaaaa"
           onSearch={this.handleSearch}
