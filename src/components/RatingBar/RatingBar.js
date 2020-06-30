@@ -21,10 +21,6 @@ class RatingBar extends React.Component {
     this.starsFromRating();
   }
 
-  // componentDidUpdate() {
-  //   this.starsFromRating();
-  // }
-
   starsFromRating() {
     const starsArray = [];
     for (let i = 0; i < this.numFullStars; i++) {
@@ -44,7 +40,7 @@ class RatingBar extends React.Component {
 
   render() {
     return (
-      <div className="star-rating">
+      <div className="star-rating" aria-label={this.props.rating}>
         {this.state.starsArray.map((starItem, id) => {
           return <div key={id}>{starItem}</div>;
         })}

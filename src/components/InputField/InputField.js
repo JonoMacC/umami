@@ -39,6 +39,9 @@ class InputField extends React.Component {
           />
         </div>
         <input
+          name={this.props.name}
+          id={this.props.name}
+          aria-label={this.props.name}
           className="input"
           placeholder={this.props.placeholder}
           onChange={this.handleChange}

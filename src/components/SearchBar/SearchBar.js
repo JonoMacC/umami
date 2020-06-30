@@ -29,6 +29,7 @@ class SearchBar extends React.Component {
     return (
       <div className="SearchBar">
         <InputField
+          name="Food or Restaurant"
           placeholder="Search Restaurants"
           icon="search"
           iconFill="#6d6d6d"
@@ -36,6 +37,7 @@ class SearchBar extends React.Component {
           onChange={this.handleTermChange}
         />
         <InputField
+          name="Location"
           placeholder="Where?"
           icon="map-pin"
           iconFill="#6d6d6d"
