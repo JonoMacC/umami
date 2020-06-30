@@ -67,6 +67,7 @@ class SearchBarTop extends React.Component {
           onClick={this.handleSearch}
           icon="arrow-right"
           iconFill="#ffffff"
+          label="Search"
         />
       </div>
     );

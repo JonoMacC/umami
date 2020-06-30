@@ -14,10 +14,14 @@ class Button extends React.Component {
     this.props.onClick(event);
   }
 
-  renderButton() {
+  render() {
     if (this.props.className.includes("icon")) {
       return (
-        <button className={this.props.className} onClick={this.handleClick}>
+        <button
+          className={this.props.className}
+          onClick={this.handleClick}
+          aria-label={this.props.label}
+        >
           <div className="icon-container">
             <Icon
               fill={this.props.iconFill}
@@ -35,10 +39,6 @@ class Button extends React.Component {
         </button>
       );
     }
-  }
-
-  render() {
-    return this.renderButton();
   }
 }
 

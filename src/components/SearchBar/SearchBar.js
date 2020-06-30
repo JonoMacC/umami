@@ -46,6 +46,7 @@ class SearchBar extends React.Component {
           className="primary icon"
           onClick={this.handleSearch}
           icon="arrow-right"
+          label="Search"
           iconFill="#181818"
         />
       </div>

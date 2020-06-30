@@ -1,7 +1,7 @@
 .Hero {
   display: flex;
   flex-direction: column;
-  background-image: url("./background_search_desktop.jpg");
+  background-image: url("./background.webp");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 27.75rem;
