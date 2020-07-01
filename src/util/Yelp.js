@@ -3,7 +3,7 @@
 
 const Yelp = {
   search(term, location, sortBy, limit) {
-    const query = `search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}`;
+    const query = `search?term=${term}&location=${location}&sort_by=${sortBy}&limit=${limit}&categories=food,restaurants`;
     return fetch(`/yelp/${query}`, {
       headers: {
         Authorization: `Bearer ${process.env.REACT_APP_YELP_API_KEY}`,
