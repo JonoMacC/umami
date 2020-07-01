@@ -3,6 +3,8 @@ import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
 import "./SearchBar.css";
 
+import debounce from "lodash/debounce";
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -19,13 +21,18 @@ class SearchBar extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
+    this.emitScrollDebounced = debounce(this.emitScroll, 10);
   }
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
   }
 
-  handleScroll() {
+  handleScroll(event) {
+    this.emitScrollDebounced(event.target.value);
+  }
+
+  emitScroll() {
     console.log(window.pageYOffset);
     if (window.pageYOffset >= 464) {
       this.setState({
