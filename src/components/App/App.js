@@ -20,6 +20,7 @@ class App extends React.Component {
       latitude: "",
       longitude: "",
       limit: 18,
+      locateTerm: "Where?",
     };
 
     this.searchYelp = this.searchYelp.bind(this);
@@ -32,8 +33,11 @@ class App extends React.Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((pos) => {
       const coord = pos.coords;
-      console.log(coord.latitude, coord.longitude);
-      this.setState({ latitude: coord.latitude, longitude: coord.longitude });
+      this.setState({
+        latitude: coord.latitude,
+        longitude: coord.longitude,
+        locateTerm: "Nearby",
+      });
     });
   }
 
@@ -106,6 +110,7 @@ class App extends React.Component {
         <Hero
           searchYelp={this.searchYelp}
           onLocationChange={this.handleLocationChange}
+          locationPlaceholder={this.state.locateTerm}
           onTermChange={this.handleTermChange}
         />
         <SortBar

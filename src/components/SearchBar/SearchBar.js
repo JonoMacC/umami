@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
         />
         <InputField
           name="Location"
-          placeholder="Where?"
+          placeholder={this.props.locationPlaceholder}
           icon="map-pin"
           iconFill="#6d6d6d"
           onSearch={this.handleSearch}

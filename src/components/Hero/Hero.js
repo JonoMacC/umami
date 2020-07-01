@@ -14,6 +14,7 @@ class Hero extends React.Component {
         <SearchBar
           searchYelp={this.props.searchYelp}
           onLocationChange={this.props.onLocationChange}
+          locationPlaceholder={this.props.locationPlaceholder}
           onTermChange={this.props.onTermChange}
         />
       </div>
