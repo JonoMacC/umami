@@ -17,6 +17,8 @@ class App extends React.Component {
       sortBy: "best_match",
       term: "",
       location: "",
+      latitude: "",
+      longitude: "",
       limit: 18,
     };
 
@@ -25,6 +27,14 @@ class App extends React.Component {
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSortByChange = this.handleSortByChange.bind(this);
     this.extendSearch = this.extendSearch.bind(this);
+  }
+
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition((pos) => {
+      const coord = pos.coords;
+      console.log(coord.latitude, coord.longitude);
+      this.setState({ latitude: coord.latitude, longitude: coord.longitude });
+    });
   }
 
   handleSortByChange(sortByOption) {
@@ -42,10 +52,12 @@ class App extends React.Component {
   }
 
   searchYelp() {
-    if (this.state.term && this.state.location) {
+    if (this.state.term && (this.state.location || this.state.latitude)) {
       Yelp.search(
         this.state.term,
         this.state.location,
+        this.state.latitude,
+        this.state.longitude,
         this.state.sortBy,
         this.state.limit
       ).then((businesses) => {

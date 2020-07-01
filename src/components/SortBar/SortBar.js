@@ -28,7 +28,7 @@ class SortBar extends React.Component {
           className={this.getSortByClass(sortByOptionValue)}
           key={sortByOptionValue}
           onClick={this.handleSortByChange.bind(this, sortByOptionValue)}
-          tabindex={0}
+          tabIndex={0}
           aria-label={`sort by ${sortByOption}`}
         >
           {sortByOption}
