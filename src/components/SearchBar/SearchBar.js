@@ -1,15 +1,49 @@
 import React from "react";
-import "./SearchBar.css";
 import InputField from "../InputField/InputField";
 import Button from "../Button/Button";
+import "./SearchBar.css";
 
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = {
+      sizeClass: "",
+      inputClass: "",
+      inputFill: "#6d6d6d",
+      buttonClass: "primary icon",
+      buttonFill: "#181818",
+    };
+
     this.handleTermChange = this.handleTermChange.bind(this);
     this.handleLocationChange = this.handleLocationChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
+    this.handleScroll = this.handleScroll.bind(this);
+  }
+
+  componentDidMount() {
+    window.addEventListener("scroll", this.handleScroll);
+  }
+
+  handleScroll() {
+    console.log(window.pageYOffset);
+    if (window.pageYOffset >= 464) {
+      this.setState({
+        sizeClass: "top",
+        inputClass: "compact",
+        inputFill: "#aaaaaa",
+        buttonClass: "icon compact",
+        buttonFill: "#ffffff",
+      });
+    } else {
+      this.setState({
+        sizeClass: "",
+        inputClass: "",
+        inputFill: "#6d6d6d",
+        buttonClass: "primary icon",
+        buttonFill: "#181818",
+      });
+    }
   }
 
   handleTermChange(value) {
@@ -27,30 +61,34 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div className="SearchBar">
-        <InputField
-          name="Food or Restaurant"
-          placeholder="Search Restaurants"
-          icon="search"
-          iconFill="#6d6d6d"
-          onSearch={this.handleSearch}
-          onChange={this.handleTermChange}
-        />
-        <InputField
-          name="Location"
-          placeholder={this.props.locationPlaceholder}
-          icon="map-pin"
-          iconFill="#6d6d6d"
-          onSearch={this.handleSearch}
-          onChange={this.handleLocationChange}
-        />
-        <Button
-          className="primary icon"
-          onClick={this.handleSearch}
-          icon="arrow-right"
-          label="Search"
-          iconFill="#181818"
-        />
+      <div className={`SearchBar-container ${this.state.sizeClass}`}>
+        <div className={`SearchBar ${this.state.sizeClass}`}>
+          <InputField
+            className={this.state.inputClass}
+            name="Food or Restaurant"
+            placeholder="Search Restaurants"
+            icon="search"
+            iconFill={this.state.inputFill}
+            onSearch={this.handleSearch}
+            onChange={this.handleTermChange}
+          />
+          <InputField
+            className={this.state.inputClass}
+            name="Location"
+            placeholder={this.props.locationPlaceholder}
+            icon="map-pin"
+            iconFill={this.state.inputFill}
+            onSearch={this.handleSearch}
+            onChange={this.handleLocationChange}
+          />
+          <Button
+            className={this.state.buttonClass}
+            onClick={this.handleSearch}
+            icon="arrow-right"
+            label="Search"
+            iconFill={this.state.buttonFill}
+          />
+        </div>
       </div>
     );
   }

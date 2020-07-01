@@ -2,12 +2,12 @@ import React from "react";
 import "./App.css";
 
 import Hero from "../Hero/Hero";
+import SearchBar from "../SearchBar/SearchBar";
 import SortBar from "../SortBar/SortBar";
 import BusinessList from "../BusinessList/BusinessList";
 import Button from "../Button/Button";
 import Footer from "../Footer/Footer";
 import Yelp from "../../util/Yelp";
-import SearchBarTop from "../SearchBarTop/SearchBarTop";
 
 class App extends React.Component {
   constructor(props) {
@@ -100,14 +100,8 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBarTop
-          searchYelp={this.searchYelp}
-          onLocationChange={this.handleLocationChange}
-          onTermChange={this.handleTermChange}
-          term={this.state.term}
-          location={this.state.location}
-        />
-        <Hero
+        <Hero />
+        <SearchBar
           searchYelp={this.searchYelp}
           onLocationChange={this.handleLocationChange}
           locationPlaceholder={this.state.locateTerm}
