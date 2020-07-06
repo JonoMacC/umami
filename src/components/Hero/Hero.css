@@ -1,11 +1,19 @@
 .Hero {
   display: flex;
   flex-direction: column;
-  background-image: url("./background.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: var(--brand-secondary);
   min-height: 27.75rem;
   width: 100%;
+}
+
+.bgImg {
+  object-fit: cover;
+  height: 100%;
+  z-index: -1;
+}
+
+.right {
+  float: right;
 }
 
 .logo {
@@ -26,6 +34,11 @@ h1 {
 @media all and (min-width: 767px) {
   .Hero {
     min-height: 33.125rem;
+    background-image: url("./LH-side.svg"), url("./RH-side.svg");
+    background-size: auto 160%;
+    background-repeat: no-repeat;
+    background-position: top -270px left calc(100vw * 0.3 - 500px),
+      top -40px right calc(100vw * 0.5 - 1020px);
   }
 
   h1 {
