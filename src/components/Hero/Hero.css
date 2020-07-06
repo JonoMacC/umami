@@ -35,7 +35,7 @@ h1 {
   .Hero {
     min-height: 33.125rem;
     background-image: url("./LH-side.svg"), url("./RH-side.svg");
-    background-size: auto 160%;
+    background-size: auto 160%, auto 140%;
     background-repeat: no-repeat;
     background-position: top -270px left calc(100vw * 0.3 - 500px),
       top -40px right calc(100vw * 0.5 - 1020px);
