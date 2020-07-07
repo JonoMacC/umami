@@ -5,6 +5,8 @@ import "./SearchBar.css";
 
 import debounce from "lodash/debounce";
 
+const { suggestions } = require("./suggestions");
+
 class SearchBar extends React.Component {
   constructor(props) {
     super(props);
@@ -15,6 +17,7 @@ class SearchBar extends React.Component {
       inputFill: "#6d6d6d",
       buttonClass: "primary icon",
       buttonFill: "#181818",
+      placeholder: "Search Food or Restaurants",
     };
 
     this.handleTermChange = this.handleTermChange.bind(this);
@@ -26,6 +29,7 @@ class SearchBar extends React.Component {
 
   componentDidMount() {
     window.addEventListener("scroll", this.handleScroll);
+    this.setState({ placeholder: this.getSearchSuggestion() });
   }
 
   handleScroll(event) {
@@ -66,6 +70,11 @@ class SearchBar extends React.Component {
     event.preventDefault();
   }
 
+  getSearchSuggestion() {
+    const index = Math.round(Math.random() * suggestions.length);
+    return suggestions[index];
+  }
+
   render() {
     return (
       <div className={`SearchBar-container ${this.state.sizeClass}`}>
@@ -73,7 +82,7 @@ class SearchBar extends React.Component {
           <InputField
             className={this.state.inputClass}
             name="Food or Restaurant"
-            placeholder="Search Restaurants"
+            placeholder={this.state.placeholder}
             icon="search"
             iconFill={this.state.inputFill}
             onSearch={this.handleSearch}
