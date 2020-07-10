@@ -1,12 +1,9 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Umami
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a7c2275-5d02-4089-9234-d78c76a3d7c1/deploy-status)](https://app.netlify.com/sites/eatumami/deploys)
+> This project was bootstrapped with [Create React App](https://create-react-app.dev).
+> It uses the [Yelp Fusion API](https://www.yelp.com/developers/documentation/v3)
 
-## Umami
-
-This project is a simple SPA (Single Page Application) using the Yelp API
-
-### Live Site
-
-Go to [https://eatumami.netlify.app](https://eatumami.netlify.app) to view the live website.
+A simple SPA for interacting with the Yelp API focused on restaurants.
 
 ## Local Development
 
@@ -23,11 +20,11 @@ The Yelp API does not support CORS which means when you make a request to the AP
 
 ### Yelp API Key Setup
 
-Once you have an API key for the Yelp Fusion API, you can set it as an environment variable on your local machine. Create a file in your root project directory called .env. In that file create a variable called REACT_APP_YELP_API_KEY and set it equal to your api key. The file should look like:<br/>
+Set your Yelp API key as an environment variable on your local machine. Create a file in your root project directory called .env. In that file create a variable called REACT_APP_YELP_API_KEY and set it equal to your api key (n.b. no spaces).
 
-`REACT_APP_YELP_API_KEY=your-api-key-goes-here`
+    REACT_APP_YELP_API_KEY=your-api-key-goes-here
 
-Never share your API key in public such as in a git repository. You should add .env to your .gitignore file.
+Never share your API key in public such as in a git repository.
 
 ### Running
 
@@ -36,11 +33,3 @@ Use `yarn start` to build a development version and run it on your local machine
 ## Deploying on Netlify
 
 Ensure that you have set up your API key as an environment variable for your site on Netlify. Revert any changes made for local development. The configuration file netlify.toml will handle proxy redirects for the Yelp API.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-To learn about the Yelp API, check out the [Yelp API documentation](https://www.yelp.com/developers/documentation/v3).
